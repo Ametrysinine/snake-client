@@ -12,7 +12,7 @@ const connect = function () {
 
   conn.on("connect", () => {
     console.log("Successfully connected to game server")
-    conn.write("Name: IRI")
+    conn.write("Name: FOX")
   })
 
   conn.on("data", (data) => {
@@ -21,6 +21,7 @@ const connect = function () {
 
   return conn;
 };
+
 
 module.exports = {
   net,
