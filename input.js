@@ -12,20 +12,28 @@ const setupInput = (conn) => {
 
 const handleUserInput = function(key) {
   // your code here
-  if (key === 'w' || key === 'W' || key === '\033[A') {
+  if (key === 'w' || key === 'W' || key === '\x1b[A') {
     connection.write('Move: up');
   }
 
-  if (key === 'a' || key === 'A'|| key === '\033[D') {
+  if (key === 'a' || key === 'A' || key === '\x1b[D') {
     connection.write('Move: left');
   }
 
-  if (key === 's' || key === 'S'|| key === '\033[B') {
+  if (key === 's' || key === 'S' || key === '\x1b[B') {
     connection.write('Move: down');
   }
 
-  if (key === 'd' || key === 'D'|| key === '\033[C') {
+  if (key === 'd' || key === 'D' || key === '\x1b[C') {
     connection.write('Move: right');
+  }
+
+  if (key === 'h' || key === 'H') {
+    connection.write("Say: Hello!");
+  }
+
+  if (key === 'b' || key === 'B') {
+    connection.write("Say: Bye!");
   }
 
   if (key === '\u0003') {
@@ -35,4 +43,4 @@ const handleUserInput = function(key) {
 
 module.exports = {
   setupInput,
-}
+};
