@@ -1,3 +1,5 @@
+const { playerMoveUp, playerMoveLeft, playerMoveDown, playerMoveRight, sayHello, sayBye } = require("./constants");
+
 let connection;
 
 const setupInput = (conn) => {
@@ -13,27 +15,27 @@ const setupInput = (conn) => {
 const handleUserInput = function(key) {
   // your code here
   if (key === 'w' || key === 'W' || key === '\x1b[A') {
-    connection.write('Move: up');
+    connection.write(playerMoveUp);
   }
 
   if (key === 'a' || key === 'A' || key === '\x1b[D') {
-    connection.write('Move: left');
+    connection.write(playerMoveLeft);
   }
 
   if (key === 's' || key === 'S' || key === '\x1b[B') {
-    connection.write('Move: down');
+    connection.write(playerMoveDown);
   }
 
   if (key === 'd' || key === 'D' || key === '\x1b[C') {
-    connection.write('Move: right');
+    connection.write(playerMoveRight);
   }
 
-  if (key === 'h' || key === 'H') {
-    connection.write("Say: Hello!");
+  if (key === 'h' || key === 'H' || key === '1') {
+    connection.write(sayHello);
   }
 
-  if (key === 'b' || key === 'B') {
-    connection.write("Say: Bye!");
+  if (key === 'b' || key === 'B' || key === '2') {
+    connection.write(sayBye);
   }
 
   if (key === '\u0003') {
